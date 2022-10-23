@@ -19,7 +19,6 @@ twdata = tweets_df.to_dict("records")
 x = mycol.insert_one({"scrapedata":twdata})
 #for x in mycol.find():
     #print(x)
-
 st.set_page_config(page_title='Twitter scraper')
 st.image('twitty.png')
 st.subheader("""Let's scrape some Tweets""")
