@@ -32,8 +32,8 @@ if (st.sidebar.button('Submit')):
         tweets_df = pd.DataFrame(tweets_list,columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'Reply', 'Retweet', 'Lang','Source', 'Likes'])
 
         st.write(tweets_df)
-        col1=st.columns([1,1,1])
-        with col1:
+        col=st.columns([1])
+        with col:
             if st.button('Upload To Database'):
                 client = MongoClient("mongodb://localhost:27017/")
                 db = client["TW_scrap"]
