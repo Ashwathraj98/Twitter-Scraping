@@ -39,13 +39,14 @@ if (st.sidebar.button('Submit')):
         json_string = tweets_df.to_json(orient='index')
         col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
+            st.download_button("Download JSON File", json_string, "tweets.json", "application/json", key='download-json')
+        with col2:
             if st.button('Upload To Database'):
                 client = MongoClient("mongodb://localhost:27017/")
                 db = client["TW_scrap"]
                 tweets_df = db["keywords"]
                 data_dict = tweets_df.to_dict("records")
                 tweets_df.insert_many(data_dict)
-        with col2:
             st.download_button("Download JSON File", json_string, "tweets.json", "application/json", key='download-json')
 
         with col3:
