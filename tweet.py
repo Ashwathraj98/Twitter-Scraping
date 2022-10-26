@@ -47,7 +47,7 @@ if (st.sidebar.button('Submit')):
                 tweets_df = db["keywords"]
                 data_dict = tweets_df.to_dict("records")
                 tweets_df.insert_many(data_dict)
-            st.download_button("Download JSON File", json_string, "tweets.json", "application/json", key='download-json')
+            
 
         with col3:
             st.download_button("Download CSV File", csv, "tweets.csv", "text/csv", key='download-csv')
